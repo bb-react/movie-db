@@ -1,4 +1,4 @@
-const apiURL = 'http://www.omdbapi.com/?apikey=cb5da875';
+const apiURL = '//www.omdbapi.com/?apikey=cb5da875';
 
 export default {
     fetchMovie: async (id) => {
