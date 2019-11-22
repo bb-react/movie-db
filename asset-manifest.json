@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/movie-db/static/css/main.34de6062.chunk.css",
-    "main.js": "/movie-db/static/js/main.8781f29c.chunk.js",
-    "main.js.map": "/movie-db/static/js/main.8781f29c.chunk.js.map",
+    "main.js": "/movie-db/static/js/main.58cec280.chunk.js",
+    "main.js.map": "/movie-db/static/js/main.58cec280.chunk.js.map",
     "runtime-main.js": "/movie-db/static/js/runtime-main.84dfda5d.js",
     "runtime-main.js.map": "/movie-db/static/js/runtime-main.84dfda5d.js.map",
     "static/js/2.22064c39.chunk.js": "/movie-db/static/js/2.22064c39.chunk.js",
     "static/js/2.22064c39.chunk.js.map": "/movie-db/static/js/2.22064c39.chunk.js.map",
     "index.html": "/movie-db/index.html",
-    "precache-manifest.862941d1b5df892cd9ece127d1181027.js": "/movie-db/precache-manifest.862941d1b5df892cd9ece127d1181027.js",
+    "precache-manifest.e4be39f648d1fda8f0152b73638a7492.js": "/movie-db/precache-manifest.e4be39f648d1fda8f0152b73638a7492.js",
     "service-worker.js": "/movie-db/service-worker.js",
     "static/css/main.34de6062.chunk.css.map": "/movie-db/static/css/main.34de6062.chunk.css.map"
   },
@@ -16,6 +16,6 @@
     "static/js/runtime-main.84dfda5d.js",
     "static/js/2.22064c39.chunk.js",
     "static/css/main.34de6062.chunk.css",
-    "static/js/main.8781f29c.chunk.js"
+    "static/js/main.58cec280.chunk.js"
   ]
 }
