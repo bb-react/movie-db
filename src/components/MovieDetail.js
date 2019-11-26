@@ -35,16 +35,15 @@ export default (props) => {
     const { id } = props.match.params;
     const isFavoriteMovie = favorites.some((movieItem) => movieItem.imdbID === movie.imdbID);
     
-    const loadMovie = (id) => dispatch({ type: MOVIE_FETCH_REQUESTED, payload: { id } });
     const handleFavorite = (item) => {
         if (isFavoriteMovie) dispatch({ type: MOVIE_REMOVE_FAVORITE, id: item.imdbID });
         else dispatch({ type: MOVIE_ADD_FAVORITE, movie: item });
     }
 
     useEffect(() => {
+        const loadMovie = (id) => dispatch({ type: MOVIE_FETCH_REQUESTED, payload: { id } });
         !movie && loadMovie(id)
-    }, [])
-
+    }, [dispatch, id, movie])
 
     return movie && (
         <Card>

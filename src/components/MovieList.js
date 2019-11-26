@@ -44,20 +44,19 @@ export default function MovieList(props) {
     const loadMovie = (id) => dispatch({ type: MOVIE_FETCH_REQUESTED, payload: { id } });
     const setMovie = (movie) => dispatch({ type: MOVIE_FETCH_REQUESTED, payload: { movie } });
 
-    const handleScroll = () => {
-        if (props.items && props.items.length >= props.totalResults || window.innerHeight + document.documentElement.scrollTop < document.documentElement.offsetHeight) return;
-
-        dispatch({ type: MOVIES_FETCH_REQUESTED, payload: { search: props.search, page: props.page + 1 } })
-    }
-
     useEffect(() => {
         if(!isFavoritesPage) {
+            const handleScroll = () => {
+                if ((props.items && props.items.length >= props.totalResults) || window.innerHeight + document.documentElement.scrollTop < document.documentElement.offsetHeight) return;
+
+                dispatch({ type: MOVIES_FETCH_REQUESTED, payload: { search: props.search, page: props.page + 1 } })
+            }
             window.addEventListener('scroll', handleScroll);
-    
+
             handleScroll();
             return () => window.removeEventListener('scroll', handleScroll);
         }
-    }, []);
+    }, [dispatch, isFavoritesPage, props.items, props.page, props.search, props.totalResults]);
 
     return (
         !props.items ? <></> :props.items.map((movie) => (

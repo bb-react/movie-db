@@ -5,6 +5,7 @@
         "mocha": true
     },
     "extends": [
+        "react-app",
         "eslint:recommended",
         "plugin:react/recommended"
     ],
