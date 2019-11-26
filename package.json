@@ -40,8 +40,11 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^6.7.1",
+    "eslint-plugin-react": "^7.16.0",
     "gh-pages": "^2.1.1",
     "react-mock-router": "^1.0.15",
     "redux-mock-store": "^1.5.3"
-  }
+  },
+  "eslintIgnore": ["src/serviceWorker.js"]
 }

@@ -67,7 +67,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default () => {
+export default function App() {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');

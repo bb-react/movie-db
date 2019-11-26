@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { MOVIE_FETCH_REQUESTED, MOVIES_FETCH_REQUESTED } from '../constants';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default (props) => {
+export default function MovieList(props) {
     const classes = useStyles();
     const dispatch = useDispatch();
 
@@ -43,17 +44,19 @@ export default (props) => {
     const loadMovie = (id) => dispatch({ type: MOVIE_FETCH_REQUESTED, payload: { id } });
     const setMovie = (movie) => dispatch({ type: MOVIE_FETCH_REQUESTED, payload: { movie } });
 
-    const handleScroll = (e) => {
+    const handleScroll = () => {
         if (props.items && props.items.length >= props.totalResults || window.innerHeight + document.documentElement.scrollTop < document.documentElement.offsetHeight) return;
 
         dispatch({ type: MOVIES_FETCH_REQUESTED, payload: { search: props.search, page: props.page + 1 } })
     }
 
-    !isFavoritesPage && useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
+    useEffect(() => {
+        if(!isFavoritesPage) {
+            window.addEventListener('scroll', handleScroll);
+    
+            handleScroll();
+            return () => window.removeEventListener('scroll', handleScroll);
+        }
     }, []);
 
     return (
@@ -81,4 +84,12 @@ export default (props) => {
             </CardActionArea>
         ))
     )
+}
+
+MovieList.propTypes = {
+    items: PropTypes.array,
+    match: PropTypes.object,
+    page: PropTypes.number,
+    search: PropTypes.string,
+    totalResults: PropTypes.number,
 }
